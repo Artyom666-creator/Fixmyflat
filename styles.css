@@ -838,21 +838,18 @@ section p {
   transform: translateX(50px);
 }
 
+ section .animat{
+opacity: 0;
+transform: translateY(150px);}
 
-                                                                section .animat{
-                                                                  opacity: 0;
-                                                                  transform: translateY(150px);
-                                                                }
-
-                                                                section.kov-animate .animat{
-                                                                  opacity: 1;
-                                                                  transform: translateY(0px);
-                                                                }
-
-                                                                section.ec-animate .animat{
-                                                                  opacity: 1;
-  /*                                                                transform: translateY(0px);*/
-                                                                }
+section.kov-animate .animat{
+opacity: 1;
+transform: translateY(0px);
+}
+section.ec-animate .animat{
+  opacity: 1;
+  /*transform: translateY(0px);*/ 
+}
 
                                                             
 
@@ -1407,7 +1404,17 @@ section .animated {
 section .animat{
   transition: 1s;
 }
-
+/* styles.css-ում ավելացրեք */
+video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+    filter: brightness(0.45);
+}
 
 
 
