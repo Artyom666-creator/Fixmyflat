@@ -154,3 +154,59 @@ window.onscroll = () => {
         });
 
 
+function showSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    if(sidebar) {
+        sidebar.classList.add('active');
+    }
+}
+
+function hideSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    if(sidebar) {
+        sidebar.classList.remove('active');
+    }
+}
+
+// Մոբայլ մենյուի փակում հղման վրա սեղմելիս
+document.querySelectorAll('.sidebar a').forEach(link => {
+    link.addEventListener('click', () => {
+        hideSidebar();
+    });
+});
+// === ՆԱԽԱԳԾԻ ԾԱԽՍԵՐԻ ՀԱՇՎԻՉ ===
+const areaSlider = document.getElementById('area');
+const workTypeSelect = document.getElementById('workType');
+const areaSpan = document.getElementById('areaValue');
+const totalSpan = document.getElementById('totalPrice');
+
+function updateCalculator() {
+    if(areaSlider && workTypeSelect && areaSpan && totalSpan) {
+        const area = parseInt(areaSlider.value);
+        const pricePerM2 = parseInt(workTypeSelect.value);
+        const total = area * pricePerM2;
+        
+        areaSpan.textContent = area;
+        totalSpan.textContent = total.toLocaleString();
+    }
+}
+
+if(areaSlider) {
+    areaSlider.addEventListener('input', updateCalculator);
+}
+if(workTypeSelect) {
+    workTypeSelect.addEventListener('change', updateCalculator);
+}
+
+updateCalculator();
+// === "Իմանալ ավելին" կոճակ ===
+const learnMoreBtn = document.querySelector('.btn-sec-3');
+if(learnMoreBtn) {
+    learnMoreBtn.addEventListener('click', function() {
+        // Ուղարկել դեպի Կապ մեզ հետ էջ
+        window.location.href = 'contact.html';
+        
+        // ԿԱՄ բացել մոդալ պատուհան (եթե ուզում եք popup)
+        // alert('Լրացուցիչ տեղեկության համար զանգահարեք +374 93 01-42-05 կամ գրեք մեզ WhatsApp-ով');
+    });
+}
